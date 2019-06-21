@@ -1,0 +1,10 @@
+<aura:component >
+	<aura:attribute name="newTodo" type="Todo__c"
+    	default="{ 'sobjectType': 'Todo__c', 'Description__c': ''}"/>
+    <aura:registerEvent name="todoAdded" type="c:TodoItemChange"/>
+	<header id="header">
+        <h1>TodoList</h1>
+    	<ui:inputText aura:id="description" placeholder="What needs to be done?" value="{!v.newTodo.Description__c}" change="{!c.fireNewTodoEvent}" class="edit"/>
+    	<!-- <input id="new-todo" placeholder="What needs to be done?" value="{!v.newTodo.Description__c}" onkeyup="{!c.fireNewTodoEvent}" class="edit"/> -->
+    </header>
+</aura:component>

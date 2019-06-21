@@ -1,0 +1,19 @@
+<aura:component controller="TodoController" implements="force:appHostable,forceCommunity:availableForAllPageTypes">
+	<ltng:require styles="{!$Resource.todo}"/>
+	<aura:attribute name="todo" type="Todo__c" default="{'sobjectType': 'Todo__c'}"/>
+    <aura:attribute name="todos" type="Todo__c[]"/>
+    <aura:attribute name="completeCount" type="Integer" />
+    <aura:attribute name="openCount" type="Integer" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler name="todoAdded" event="c:TodoItemChange" action="{!c.handleTodoCreate}"/>  
+    <aura:handler name="todoUpdated" event="c:TodoItemChange" action="{!c.handleTodoUpdate}"/> 
+    <aura:handler name="todoDeleted" event="c:TodoItemChange" action="{!c.handleTodoDelete}"/>  
+	<section id="todoapp">
+		<div>
+			<c:TodoHeader />
+			<c:TodoMainSection todos="{!v.todos}"/>
+			<c:TodoFooter remainingCount="{!v.openCount}" completedCount="{!v.completeCount}"/>
+		</div>
+	</section>
+</aura:component>

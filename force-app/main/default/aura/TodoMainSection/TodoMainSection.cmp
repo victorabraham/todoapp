@@ -1,0 +1,10 @@
+<aura:component >
+	<aura:attribute name="todos" type="Todo__c[]"/>
+	<aura:attribute name="remainingCount" type="Integer" />
+    <aura:attribute name="completedCount" type="Integer" />
+	<ul id="todo-list">
+		<aura:iteration items="{!v.todos}" var="todo">
+			<c:TodoItem todo="{!todo}" />
+		</aura:iteration>
+	</ul>
+</aura:component>

@@ -1,0 +1,12 @@
+<aura:component >
+    <aura:attribute name="remainingCount" type="Integer" />
+    <aura:attribute name="completedCount" type="Integer" />
+    <footer id="footer">
+        <span id="todo-count">
+            {! (v.remainingCount == undefined || v.remainingCount == 0) ? '' : v.remainingCount+' items left'}
+        </span>
+        <button id="clear-completed" onclick="">
+            {! (v.completedCount == undefined || v.completedCount == 0) ? '' : 'Clear completed ('+v.completedCount+')'}
+        </button>
+    </footer>
+</aura:component>

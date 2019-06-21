@@ -1,0 +1,12 @@
+<aura:component >
+	<aura:attribute name="todo" type="Todo__c" />
+	<aura:registerEvent name="todoDeleted" type="c:TodoItemChange"/>
+	<aura:registerEvent name="todoUpdated" type="c:TodoItemChange"/>
+	<li class="{!v.todo.Completed__c ? 'completed' : ''}">
+        <div class="view">
+          <ui:inputCheckbox class="toggle" value="{!v.todo.Completed__c}" change="{!c.fireUpdateTodoEvent}"/>
+          <label onDoubleClick="">{!v.todo.Description__c}</label>
+          <button class="destroy" onclick="{!c.fireDeleteTodoEvent}" />
+        </div>
+      </li>
+</aura:component>
